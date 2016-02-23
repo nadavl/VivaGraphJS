@@ -299,12 +299,14 @@ function renderer(graph, settings) {
     // TODO: This may not be memory efficient. Consider reusing handlers object.
     inputManager.bindDragNDrop(node, {
       onStart: function() {
+        publicEvents.fire('nodedragstart', node);
         wasPinned = layout.isNodePinned(node);
         layout.pinNode(node, true);
         userInteraction = true;
         resetStable();
       },
       onDrag: function(e, offset) {
+        publicEvents.fire('nodedrag', e, offset);
         var oldPos = layout.getNodePosition(node.id);
         layout.setNodePosition(node.id,
           oldPos.x + offset.x / transform.scale,
@@ -314,9 +316,12 @@ function renderer(graph, settings) {
 
         renderGraph();
       },
-      onStop: function() {
+      onStop: function(e) {
+        publicEvents.fire('nodedragstop');
         layout.pinNode(node, wasPinned);
         userInteraction = false;
+        console.log(e);
+        e.stopPropagation();
       }
     });
   }
