@@ -320,7 +320,6 @@ function renderer(graph, settings) {
         publicEvents.fire('nodedragstop');
         layout.pinNode(node, wasPinned);
         userInteraction = false;
-        console.log(e);
         e.stopPropagation();
       }
     });
