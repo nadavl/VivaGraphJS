@@ -413,13 +413,18 @@ function renderer(graph, settings) {
   }
 
   function scale(out, scrollPoint) {
-    if (!scrollPoint) {
-      var containerSize = getDimension(container);
-      scrollPoint = {
-        x: containerSize.width / 2,
-        y: containerSize.height / 2
-      };
+    if ((transform.scale >= settings.zoomRange.max && !out) ||
+      (transform.scale <= settings.zoomRange.min && out)) {
+      return;
     }
+
+      if (!scrollPoint) {
+        var containerSize = getDimension(container);
+        scrollPoint = {
+          x: containerSize.width / 2,
+          y: containerSize.height / 2
+        };
+      }
     var scaleFactor = Math.pow(1 + 0.4, out ? -0.2 : 0.2);
     transform.scale = graphics.scale(scaleFactor, scrollPoint);
 
