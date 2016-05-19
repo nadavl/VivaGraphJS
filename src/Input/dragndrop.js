@@ -141,7 +141,7 @@ function dragndrop(element) {
             if (e.wheelDelta) {
                 delta = e.wheelDelta / 360; // Chrome/Safari
             } else {
-                delta = e.detail !== 0 ? e.detail / -9 : e.deltaY; // Mozilla / IE
+                delta = -1 * (e.detail !== 0 ? e.detail / -9 : e.deltaY); // Mozilla / IE
             }
 
             scroll(e, delta, relMousePos);
