@@ -20,7 +20,7 @@ var Viva = {
 
 Viva.Graph = {
   version: require('./version.js'),
-  graph: require('ngraph.graph'),
+  graph: require('ngraph.graph-fork'),
 
   serializer: function() {
     return {
