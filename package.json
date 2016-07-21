@@ -39,7 +39,7 @@
     "ngraph.forcelayout": "0.0.21",
     "ngraph.fromjson": "0.1.7",
     "ngraph.generators": "0.0.15",
-    "ngraph.graph-fork": "0.0.12",
+    "ngraph.graph-fork": "0.0.13",
     "ngraph.merge": "0.0.1",
     "ngraph.random": "0.0.1",
     "ngraph.tojson": "0.1.3",
